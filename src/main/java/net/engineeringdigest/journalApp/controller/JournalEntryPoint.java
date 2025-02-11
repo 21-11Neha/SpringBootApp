@@ -44,7 +44,7 @@ public class JournalEntryPoint {
     }
     @GetMapping("id/{Id}")
     public ResponseEntity<?> getById(@PathVariable ObjectId Id){
-        return Optional.ofNullable(journalEntityService.getById(Id)).map(val -> new ResponseEntity<>(val, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return Optional.ofNullable(journalEntityService.getById(Id)).map (val -> new ResponseEntity<>(val, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @DeleteMapping("id/{id}")
     public ResponseEntity<?> deleteById(@PathVariable ObjectId id){
