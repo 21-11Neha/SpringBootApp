@@ -8,6 +8,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,7 @@ public class JournalEntityService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional
     public void saveEntry(JournalEntity journalEntity, String username){
         User user = userRepository.getByUsername(username);
         if(null != user){
